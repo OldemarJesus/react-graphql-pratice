@@ -1,25 +1,36 @@
-- Quais problemas GraphQL resolve?
-    - Overfetching
-        - http://localhost:300/users
-            - DB (usuários, endereços)
-    - Underfetching
-        - http://localhost:3000/users
-            - DB (usuário)
+# Notas Free
 
-// http://localhost:3000/graphql
+Esta aplicação serve simples propósito de guardar notas
+de forma simples e prática
+
+## Exemplo de operações
+> Listar registos
 
 ```gql
 query {
-    users {
-        id
-        name
-        githut
+  users {
+    id,
+    name
+  }
+}
+```
 
-        addresses {
-            city
-            state
-            country
-        }
-    }
+> Adicionar novos registos
+```gql
+mutation($name: String!) {
+  createUser(name: $name) {
+    id
+    name
+  }
+}
+```
+
+> Apagar registos
+```gql
+mutation($id: String!){
+  deleteUser(id: $id) {
+    id,
+    name
+  }
 }
 ```
