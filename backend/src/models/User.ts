@@ -4,8 +4,8 @@ import { Field, ID, ObjectType } from "type-graphql";
 @ObjectType()
 export class User {
     @Field(__Type => ID)
-    id: string
+    id?: string
 
     @Field()
-    name: string
+    name?: string
 }
